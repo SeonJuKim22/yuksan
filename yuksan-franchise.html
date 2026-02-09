@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="육산갈비 가맹점 모집 - 30년 양념내공의 대형 평수 갈비 전문 브랜드">
+    <title>육산갈비 가맹점 모집</title>
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Color Variables */
+        :root {
+            --primary-navy: #001D3D;
+            --primary-brown: #634632;
+            --accent-orange: #F77F00;
+            --light-gray: #F8F5F2;
+            --text-dark: #2C2C2C;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-navy);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-brown) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(247, 127, 0, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: var(--accent-orange);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(247, 127, 0, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(247, 127, 0, 0.6);
+        }
+
+        /* Section Common Styles */
+        section {
+            padding: 100px 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Story Section */
+        #story {
+            background: var(--light-gray);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .story-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .story-card h3 {
+            font-size: 24px;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .story-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Strengths Section */
+        #strengths {
+            background: white;
+        }
+
+        .strengths-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .strength-item {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-brown) 100%);
+            padding: 40px 30px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .strength-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent-orange);
+        }
+
+        .strength-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .strength-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+        }
+
+        .strength-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .strength-item p {
+            font-size: 15px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Menu Section */
+        #menu {
+            background: var(--light-gray);
+        }
+
+        .menu-text {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            line-height: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .menu-highlight {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin-top: 50px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .menu-item {
+            text-align: center;
+            padding: 30px;
+            background: var(--light-gray);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            background: var(--primary-navy);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .menu-item h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary-navy);
+        }
+
+        .menu-item:hover h4 {
+            color: white;
+        }
+
+        /* Points Section */
+        #points {
+            background: white;
+        }
+
+        .points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .point-card {
+            background: var(--light-gray);
+            padding: 40px;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent-orange);
+            transition: all 0.3s ease;
+        }
+
+        .point-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(10px);
+        }
+
+        .point-label {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .point-card h3 {
+            font-size: 22px;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .point-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .point-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .point-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+
+        /* Guide Section */
+        #guide {
+            background: var(--light-gray);
+        }
+
+        .guide-content {
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .guide-info {
+            font-size: 18px;
+            line-height: 2;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .guide-box {
+            background: var(--primary-navy);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .guide-box h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--accent-orange);
+        }
+
+        .guide-box p {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-brown) 100%);
+            color: white;
+        }
+
+        #contact .section-title,
+        #contact .section-subtitle {
+            color: white;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-navy);
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 18px;
+            background: var(--accent-orange);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: #e67300;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(247, 127, 0, 0.4);
+        }
+
+        /* Floating Phone Button */
+        .floating-phone {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-orange);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 5px 25px rgba(247, 127, 0, 0.5);
+            z-index: 999;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .floating-phone:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 35px rgba(247, 127, 0, 0.7);
+        }
+
+        .phone-icon {
+            font-size: 24px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-navy);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .story-grid,
+            .strengths-list,
+            .points-grid,
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .floating-phone {
+                bottom: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                font-size: 16px;
+            }
+
+            .guide-content {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">육산</a>
+            <nav>
+                <ul>
+                    <li><a href="#story">육산 스토리</a></li>
+                    <li><a href="#menu">육산 메뉴</a></li>
+                    <li><a href="#points">창업포인트</a></li>
+                    <li><a href="#guide">창업안내</a></li>
+                    <li><a href="#contact">가맹문의</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>산(山)처럼 우직한<br>고기(肉) 철학 육산</h1>
+            <p class="hero-subtitle">30년 양념내공으로 완성한 대형 평수 갈비 전문 브랜드</p>
+            <p class="hero-desc">유행을 따르지 않고, 결과로 증명해왔습니다.<br>무한리필은 흉내낼 수 없는 30년 내공의 깊은 맛</p>
+            <a href="#contact" class="cta-button">가맹 문의하기</a>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story">
+        <div class="container">
+            <h2 class="section-title">육산 스토리 & 브랜드 경쟁력</h2>
+            <p class="section-subtitle">흔한 생고기 운영이 아닌, 30년 노하우로 완성된 독보적 양념육 시스템</p>
+            
+            <div class="story-grid fade-in">
+                <div class="story-card">
+                    <h3>🏔️ 산처럼 우직한 철학</h3>
+                    <p>육산갈비는 유행을 타지 않는 진짜 양념갈비로 30년간 묵묵히 그 자리를 지켜왔습니다. 빠른 트렌드보다 변하지 않는 본질에 집중합니다.</p>
+                </div>
+                <div class="story-card">
+                    <h3>🔥 30년 양념 내공</h3>
+                    <p>무한리필로는 절대 따라올 수 없는 깊은 맛의 비밀. 3대째 이어온 양념 레시피로 가족외식과 회식을 동시에 만족시킵니다.</p>
+                </div>
+                <div class="story-card">
+                    <h3>💪 검증된 시스템</h3>
+                    <p>8년간 월매출 2~3억, 200평 매장까지 운영 가능한 검증된 동선, 주방, 운영시스템. 입지보다 중요한 것은 시스템입니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strengths Section -->
+    <section id="strengths">
+        <div class="container">
+            <h2 class="section-title">육산만의 핵심 강점</h2>
+            <p class="section-subtitle">맛과 시스템으로 증명하는 흔들림 없는 수익력</p>
+            
+            <div class="strengths-list fade-in">
+                <div class="strength-item">
+                    <div class="strength-number">01</div>
+                    <h3>8년 연속 월 2~3억 매출</h3>
+                    <p>세종시 220평 매장, 40개 테이블의 효율을 극대화한 운영 노하우. 8년간 쌓아온 데이터로 검증된 안정적인 가족 외식형 비즈니스</p>
+                </div>
+                <div class="strength-item">
+                    <div class="strength-number">02</div>
+                    <h3>빈틈 없는 메뉴 라인업</h3>
+                    <p>저녁: 고퀄리티 양념육과 자가제면 수제 냉면<br>점심: 소불고기 전골, 궁중소갈비찜<br>하루 종일 손님이 끊이지 않는 강력한 메뉴 구성</p>
+                </div>
+                <div class="strength-item">
+                    <div class="strength-number">03</div>
+                    <h3>실속 중심 입지 전략</h3>
+                    <p>비싼 메인 상권 대신 맛으로 고객을 끌어들이는 '목적지형 맛집' 전략. 50평 이상 대형 평수 최적화로 고수익 실현</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <div class="container">
+            <h2 class="section-title">육산의 메뉴</h2>
+            <p class="section-subtitle">품격 있는 양념육부터 궁중 소갈비찜까지, 점심과 저녁을 모두 잡는 맛</p>
+            
+            <div class="menu-highlight fade-in">
+                <h3 style="text-align: center; color: var(--primary-navy); font-size: 28px; margin-bottom: 30px;">풀타임 매출 구조</h3>
+                <p class="menu-text">
+                    <strong>낮에는</strong> 갈비찜으로 식사 수요를<br>
+                    <strong>저녁엔</strong> 양념갈비로 회식 수요를<br>
+                    빈틈없는 메뉴로 실현하는 <span style="color: var(--accent-orange); font-weight: 700;">풀타임 매출 구조</span>
+                </p>
+                
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <h4>양념 갈비</h4>
+                        <p>30년 비법 양념</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>궁중 소갈비찜</h4>
+                        <p>점심 특선 메뉴</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>소불고기 전골</h4>
+                        <p>객단가 업</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>자가제면 냉면</h4>
+                        <p>수제 냉면</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Points Section -->
+    <section id="points">
+        <div class="container">
+            <h2 class="section-title">창업 포인트</h2>
+            <p class="section-subtitle">육산갈비가 제시하는 성공적인 창업의 핵심 요소</p>
+            
+            <div class="points-grid fade-in">
+                <div class="point-card">
+                    <span class="point-label">POINT 1</span>
+                    <h3>8년 연속 월 2~3억 매출, 대형 매장이 증명한 흔들림 없는 수익력</h3>
+                    <ul>
+                        <li>세종시 220평 매장, 40개 테이블의 효율을 극대화한 운영 노하우</li>
+                        <li>8년간 쌓아온 데이터로 검증된 안정적인 가족 외식형 비즈니스</li>
+                        <li>유행에 민감한 아이템이 아닌, 지역 1등 맛집으로 자리 잡는 생존력</li>
+                    </ul>
+                </div>
+                
+                <div class="point-card">
+                    <span class="point-label">POINT 2</span>
+                    <h3>빈틈 없는 메뉴 라인업, 품격 있는 양념육부터 궁중 소갈비찜까지</h3>
+                    <ul>
+                        <li>저녁: 무한리필은 따라올 수 없는 고퀄리티 양념육과 자가제면 수제 냉면</li>
+                        <li>점심: 소불고기 전골, 궁중소갈비찜 등 객단가와 만족도를 모두 높인 특선메뉴</li>
+                        <li>상권에 구애받지 않고 하루 종일 손님이 끊이지 않는 강력한 메뉴 구성</li>
+                    </ul>
+                </div>
+                
+                <div class="point-card">
+                    <span class="point-label">POINT 3</span>
+                    <h3>실속 중심의 입지 전략: 임대료 부담은 낮추고 수익은 높이는 대형 가든 모델</h3>
+                    <ul>
+                        <li>비싼 메인 상권 대신, 맛으로 고객을 끌어들이는 '목적지형 맛집' 전략</li>
+                        <li>50평 이상 대형 평수에 최적화된 동선과 가족 단위 단체 손님 수용 시스템</li>
+                        <li>절감된 임대료를 원재료와 서비스에 투자하여 선순환 구조의 고수익 실현</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section id="guide">
+        <div class="container">
+            <h2 class="section-title">창업 안내</h2>
+            <p class="section-subtitle">육산갈비와 함께하는 성공 창업 프로세스</p>
+            
+            <div class="guide-content fade-in">
+                <div class="guide-info">
+                    육산갈비는 <strong style="color: var(--accent-orange);">50평 이상 대형 평수</strong>에 최적화된 시스템을 제공합니다.<br>
+                    맛과 시스템으로 증명된 <strong style="color: var(--primary-navy);">목적지형 맛집</strong> 모델로,<br>
+                    비싼 핵심 상권이 아니어도 안정적인 수익을 실현할 수 있습니다.
+                </div>
+                
+                <div class="guide-box">
+                    <h3>⭐ 육산갈비 창업 특징</h3>
+                    <p>
+                        • 검증된 8년 운영 데이터 제공<br>
+                        • 30년 전통 양념 레시피 전수<br>
+                        • 대형 매장 운영 노하우 공유<br>
+                        • 점심·저녁 풀타임 매출 구조<br>
+                        • 가족 외식 + 회식 집객 시스템<br>
+                        • 지속적인 운영 지원 및 컨설팅
+                    </p>
+                </div>
+                
+                <div class="guide-box" style="background: var(--primary-brown); margin-top: 20px;">
+                    <h3>📞 창업 상담 문의</h3>
+                    <p>
+                        자세한 창업 정보와 상담은 아래 문의 폼을 통해<br>
+                        신청하시거나 전화로 직접 문의해주시기 바랍니다.<br><br>
+                        <strong style="font-size: 24px; color: var(--accent-orange);">010-6601-2927</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">가맹 문의</h2>
+            <p class="section-subtitle">육산갈비와 함께 성공 창업을 시작하세요</p>
+            
+            <form class="contact-form fade-in" onsubmit="return handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">이름 *</label>
+                    <input type="text" id="name" name="name" required placeholder="이름을 입력해주세요">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">연락처 *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="010-0000-0000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">이메일 *</label>
+                    <input type="email" id="email" name="email" required placeholder="example@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">문의내용</label>
+                    <textarea id="message" name="message" placeholder="문의하실 내용을 자유롭게 작성해주세요"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button">문의하기</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>육산갈비</strong></p>
+        <p>대표번호: 010-6601-2927 | 이메일: ys-food@naver.com</p>
+        <p>© 2024 Yuksan Galbi. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Floating Phone Button -->
+    <a href="tel:010-6601-2927" class="floating-phone">
+        <span class="phone-icon">📞</span>
+        <span>010-6601-2927</span>
+    </a>
+
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header Scroll Effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.padding = '10px 0';
+            } else {
+                header.style.padding = '20px 0';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Form Submit Handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+            
+            // 실제 구현 시 서버로 데이터 전송
+            console.log('Form submitted:', formData);
+            
+            alert('문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+            event.target.reset();
+            
+            return false;
+        }
+
+        // Mobile Menu Toggle (필요시 추가)
+        function toggleMobileMenu() {
+            const nav = document.querySelector('nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+</body>
+</html>
